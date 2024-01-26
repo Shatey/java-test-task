@@ -68,12 +68,10 @@ public class ProxyController {
             log(String.format("Incoming request: %s", request));
             Response response = doProxyRequest(request);
             log(String.format("Outgoing response: %s", response));
-//            return response;
             return ResponseEntity.status(response.getCode()).body(response.getBody());
         } catch (IOException e) {
             Response response = new Response(500, "Error processing request: " + e.getMessage());
             log(String.format("Outgoing response: %s", response));
-//            return response;
             return ResponseEntity.status(response.getCode()).body(response.getBody());
         }
     }
@@ -86,12 +84,10 @@ public class ProxyController {
         try {
             Response response = doProxyRequest(request);
             log(String.format("Outgoing response: %s", response));
-//            return response;
             return ResponseEntity.status(response.getCode()).body(response.getBody());
         } catch (IOException e) {
             Response response = new Response(500, "Error processing request: " + e.getMessage());
             log(String.format("Outgoing response: %s", response));
-//            return response;
             return ResponseEntity.status(response.getCode()).body(response.getBody());
         }
     }
